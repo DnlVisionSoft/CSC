@@ -1,5 +1,5 @@
 # CSC
-The Cell Segmentation and Counting based on Gray Lvel Clustering (CSC) package.  
+Cell Segmentation and Counting based on Gray Lvel Clustering (CSC) package.  
 
 --------------------------------------------------------------------------
 
