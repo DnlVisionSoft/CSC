@@ -101,101 +101,101 @@ indices = zeros(1,14);
 indices(1) = 1; % we compute only the F-Measure
 
 if(exist('.\Images\BBBC004','dir'))
-%     % Overlapping 0
-%     d = dir('Images\BBBC004\synthetic_000_images\*.tif')
-%     
+    % Overlapping 0
+    d = dir('Images\BBBC004\synthetic_000_images\*.tif')
+    
     hw = waitbar(0,'Segmenting and Counting Overlap(0%%)...');
-%     Errore = zeros(size(d,1), 5);
-%     Counts = zeros(size(d,1), 5);
-%     Accuracy = zeros(size(d,1), 5);
-%     Sensitivity = zeros(size(d,1), 5);
-%     Specificity = zeros(size(d,1), 5);
-%     Fmeasure = zeros(size(d,1), 5);
-%     MSE = zeros(1, 5);
-%     for i=1:size(d,1)
-%         nome = sprintf('Images\\BBBC004\\synthetic_000_images\\%s', d(i).name);
-%         A = imread(nome);
-%         
-%         [Results1] = CSC_CellSegmentation(A, opts);
-%         [Results2] = CSC_CellCounting(Results1.Mask, opts);
-%         
-%         nomesave = sprintf('Output\\BBBC004\\BinaryMasks\\%s', strrep(d(i).name, '.tif', '_overlap0_segm.tif'));
-%         imwrite(uint8(255*Results1.Mask), nomesave);
-%         nomesave = sprintf('Output\\BBBC004\\Annotated\\%s', strrep(d(i).name, '.tif', '_overlap0_annoated.tif'));
-%         imwrite(uint8(255*Results2.AnnotatedMask), nomesave);
-%         
-%         Errore(i,1) = (Results2.nCells-300)/300*100;
-%         Counts(i,1) = Results2.nCells;
-%         Counts(:,1)
-%         nome = strrep(nome, 'synthetic_000_images', 'synthetic_000_foreground');
-%         nome = strrep(nome, 'GRAY', '');
-%         GT = rgb2gray(imread(nome))>0;
-%         
-%         [Measures] = CSC_EvaluateSegmentation(Results1.Mask, GT, indices);
-%         Accuracy(i,1) = Measures.Accuracy;
-%         Sensitivity(i,1) = Measures.Sensitivity;
-%         Specificity(i,1) = Measures.Specificity;
-%         Fmeasure(i,1) = Measures.Fmeasure;
-%         mean(Errore(1:i,1))
-%         std(Errore(1:i,1))
-%         mean(Accuracy(1:i,1))
-%         mean(Sensitivity(1:i,1))
-%         mean(Specificity(1:i,1))
-%         mean(Fmeasure(1:i,1))
-%         waitbar(i/size(d,1),hw, sprintf('Segmenting and Counting (0%%) (%d/%d)', i, size(d,1)));
-%         pause(0.1);
-%     end
-%     mean(Errore)
-%     std(Errore)
-%     mean(Accuracy)
-%     mean(Sensitivity)
-%     mean(Specificity)
-%     mean(Fmeasure)
-%     MSE(1) = mean((Counts(:,1)-300).^2);
-%     
-%     
-%     % Overlapping 15
-%     d = dir('Images\\BBBC004\\synthetic_015_images\\*.tif')
-%     for i=1:size(d,1)
-%         nome = sprintf('Images\\BBBC004\\synthetic_015_images\\%s', d(i).name);
-%         A = imread(nome);
-%         [Results1] = CSC_CellSegmentation(A, opts);
-%         [Results2] = CSC_CellCounting(Results1.Mask, opts);
-%         
-%         nomesave = sprintf('Output\\BBBC004\\BinaryMasks\\%s', strrep(d(i).name, '.tif', '_overlap15_segm.tif'));
-%         imwrite(uint8(255*Results1.Mask), nomesave);
-%         nomesave = sprintf('Output\\BBBC004\\Annotated\\%s', strrep(d(i).name, '.tif', '_overlap15_annoated.tif'));
-%         imwrite(uint8(255*Results2.AnnotatedMask), nomesave);
-%         
-%         Errore(i,2) = (Results2.nCells-300)/300*100;
-%         Counts(i,2) = Results2.nCells;
-%         Counts(:,1:2)
-%         mean(Errore(1:i,:))
-%         nome = strrep(nome, 'synthetic_015_images', 'synthetic_015_foreground');
-%         nome = strrep(nome, 'GRAY', '');
-%         GT = rgb2gray(imread(nome))>0;
-%         
-%         [Measures] = CSC_EvaluateSegmentation(Results1.Mask, GT, indices);
-%         Accuracy(i,2) = Measures.Accuracy;
-%         Sensitivity(i,2) = Measures.Sensitivity;
-%         Specificity(i,2) = Measures.Specificity;
-%         Fmeasure(i,2) = Measures.Fmeasure;
-%         mean(Errore(1:i,2))
-%         std(Errore(1:i,2))
-%         mean(Accuracy(1:i,2))
-%         mean(Sensitivity(1:i,2))
-%         mean(Specificity(1:i,2))
-%         mean(Fmeasure(1:i,2))
-%         waitbar(i/size(d,1),hw, sprintf('Segmenting and Counting (15%%) (%d/%d)', i, size(d,1)));
-%         pause(0.1);
-%     end
-%     mean(Errore)
-%     std(Errore)
-%     mean(Accuracy)
-%     mean(Sensitivity)
-%     mean(Specificity)
-%     mean(Fmeasure)
-%     MSE(2) = mean((Counts(:,1)-300).^2);
+    Errore = zeros(size(d,1), 5);
+    Counts = zeros(size(d,1), 5);
+    Accuracy = zeros(size(d,1), 5);
+    Sensitivity = zeros(size(d,1), 5);
+    Specificity = zeros(size(d,1), 5);
+    Fmeasure = zeros(size(d,1), 5);
+    MSE = zeros(1, 5);
+    for i=1:size(d,1)
+        nome = sprintf('Images\\BBBC004\\synthetic_000_images\\%s', d(i).name);
+        A = imread(nome);
+        
+        [Results1] = CSC_CellSegmentation(A, opts);
+        [Results2] = CSC_CellCounting(Results1.Mask, opts);
+        
+        nomesave = sprintf('Output\\BBBC004\\BinaryMasks\\%s', strrep(d(i).name, '.tif', '_overlap0_segm.tif'));
+        imwrite(uint8(255*Results1.Mask), nomesave);
+        nomesave = sprintf('Output\\BBBC004\\Annotated\\%s', strrep(d(i).name, '.tif', '_overlap0_annoated.tif'));
+        imwrite(uint8(255*Results2.AnnotatedMask), nomesave);
+        
+        Errore(i,1) = (Results2.nCells-300)/300*100;
+        Counts(i,1) = Results2.nCells;
+        Counts(:,1)
+        nome = strrep(nome, 'synthetic_000_images', 'synthetic_000_foreground');
+        nome = strrep(nome, 'GRAY', '');
+        GT = rgb2gray(imread(nome))>0;
+        
+        [Measures] = CSC_EvaluateSegmentation(Results1.Mask, GT, indices);
+        Accuracy(i,1) = Measures.Accuracy;
+        Sensitivity(i,1) = Measures.Sensitivity;
+        Specificity(i,1) = Measures.Specificity;
+        Fmeasure(i,1) = Measures.Fmeasure;
+        mean(Errore(1:i,1))
+        std(Errore(1:i,1))
+        mean(Accuracy(1:i,1))
+        mean(Sensitivity(1:i,1))
+        mean(Specificity(1:i,1))
+        mean(Fmeasure(1:i,1))
+        waitbar(i/size(d,1),hw, sprintf('Segmenting and Counting (0%%) (%d/%d)', i, size(d,1)));
+        pause(0.1);
+    end
+    mean(Errore)
+    std(Errore)
+    mean(Accuracy)
+    mean(Sensitivity)
+    mean(Specificity)
+    mean(Fmeasure)
+    MSE(1) = mean((Counts(:,1)-300).^2);
+    
+    
+    % Overlapping 15
+    d = dir('Images\\BBBC004\\synthetic_015_images\\*.tif')
+    for i=1:size(d,1)
+        nome = sprintf('Images\\BBBC004\\synthetic_015_images\\%s', d(i).name);
+        A = imread(nome);
+        [Results1] = CSC_CellSegmentation(A, opts);
+        [Results2] = CSC_CellCounting(Results1.Mask, opts);
+        
+        nomesave = sprintf('Output\\BBBC004\\BinaryMasks\\%s', strrep(d(i).name, '.tif', '_overlap15_segm.tif'));
+        imwrite(uint8(255*Results1.Mask), nomesave);
+        nomesave = sprintf('Output\\BBBC004\\Annotated\\%s', strrep(d(i).name, '.tif', '_overlap15_annoated.tif'));
+        imwrite(uint8(255*Results2.AnnotatedMask), nomesave);
+        
+        Errore(i,2) = (Results2.nCells-300)/300*100;
+        Counts(i,2) = Results2.nCells;
+        Counts(:,1:2)
+        mean(Errore(1:i,:))
+        nome = strrep(nome, 'synthetic_015_images', 'synthetic_015_foreground');
+        nome = strrep(nome, 'GRAY', '');
+        GT = rgb2gray(imread(nome))>0;
+        
+        [Measures] = CSC_EvaluateSegmentation(Results1.Mask, GT, indices);
+        Accuracy(i,2) = Measures.Accuracy;
+        Sensitivity(i,2) = Measures.Sensitivity;
+        Specificity(i,2) = Measures.Specificity;
+        Fmeasure(i,2) = Measures.Fmeasure;
+        mean(Errore(1:i,2))
+        std(Errore(1:i,2))
+        mean(Accuracy(1:i,2))
+        mean(Sensitivity(1:i,2))
+        mean(Specificity(1:i,2))
+        mean(Fmeasure(1:i,2))
+        waitbar(i/size(d,1),hw, sprintf('Segmenting and Counting (15%%) (%d/%d)', i, size(d,1)));
+        pause(0.1);
+    end
+    mean(Errore)
+    std(Errore)
+    mean(Accuracy)
+    mean(Sensitivity)
+    mean(Specificity)
+    mean(Fmeasure)
+    MSE(2) = mean((Counts(:,1)-300).^2);
     
     % Overlapping 30
     d = dir('Images\\BBBC004\\synthetic_030_images\\*.tif')
