@@ -97,7 +97,6 @@ indices(11) = 1;
 
 if(exist('.\Images\BBBC008','dir'))
     
-    % elaboriamo tutte le immagini in BBBC008
     d = dir('.\Images\BBBC008\Channel1_Input\*.tif')
     
     Accuracy = 0;

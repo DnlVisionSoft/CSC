@@ -96,19 +96,7 @@ if(exist('.\Images\BBBC006\Input2','dir'))
     hw = waitbar(0,'Segmenting...');
     
     d = dir('.\Images\BBBC006\Input2\*.tif')
-    
-%     Statistics.RI = zeros(1, size(d,1));
-%     Statistics.JI = zeros(1, size(d,1));
-%     Statistics.HM = zeros(1, size(d,1));
-%     Statistics.NSD = zeros(1, size(d,1));
-%     Statistics.Split = zeros(1,size(d,1));
-%     Statistics.Merged = zeros(1,size(d,1));
-%     Statistics.Added = zeros(1,size(d,1));
-%     Statistics.Missing = zeros(1,size(d,1));
-%     Statistics.nCellRef = zeros(1,size(d,1));
-%     Statistics.nCellSeg = zeros(1,size(d,1));
-    
-    
+     
     cellcnt = 1;
     
     indices = zeros(1,14);
@@ -139,40 +127,6 @@ if(exist('.\Images\BBBC006\Input2','dir'))
         nome2 = sprintf('Images\\BBBC006\\Labels\\%s', nome2);
         nome2 = strrep(nome2, 'original', 'reference');
         Labels = double(imread(nome2));
-        
-%         n = max(unique(Labels(:)));
-%         m = max(unique(Results2.Labels(:)));
-%         Matches = zeros(n,m);
-%         
-%         for k=1:n
-%             
-%             g = (Labels==k);
-%             if(sum(g(:))>0)
-%                 
-%                 c = (Results2.Labels.*g);
-%                 
-%                 if(sum(c(:))>0)
-%                     h = histc(c(:), 1:max(c(:)));
-%                     mlab = min(find(h==max(h)));
-%                     Matches(k,mlab)=1;
-%                 end
-%             end
-%         end
-%         
-%         for k=1:m
-%             
-%             g = (Results2.Labels==k);
-%             c = Labels.*g;
-%             
-%             if(sum(c(:))==0)
-%                 Statistics.Added(i) = Statistics.Added(i) + 1;
-%             else
-%                 h = histc(c(:), 1:max(c(:)));
-%                 
-%                 nlab = min(find(h==max(h)));
-%                 Matches(nlab,k)=1;
-%             end
-%         end
         
         [Measures] = CSC_EvaluateSegmentation(Labels, Results2.Labels, indices);
         
