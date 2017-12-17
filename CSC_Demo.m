@@ -12,14 +12,33 @@
 %     Authors: Daniel Riccio, Maria Frucci, Nadia Brancati, Diego Gragnaniello
 %     Matlab Implementation by Daniel Riccio, June 06, 2017.
 %     Copyright (C) 2017 Daniel Riccio (daniel.riccio@unina.it)
+%     website: https://www.docenti.unina.it/daniel.riccio
 %     also see https://github.com/DnlVisionSoft/CSC.git
 %
-%     This file is part of the Cell Segmentation and Counting based on Gray Lvel Clustering (CSC) package.
+%     This file is part of the Cell Segmentation and Counting based on 
+%     Gray Lvel Clustering (CSC) package.
 %
 % 
-%     CSC package is distributed in the hope that it will be useful,
-%     but WITHOUT ANY WARRANTY; without even the implied warranty of
-%     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+%     The CSC package is distributed in the hope that it will be useful,
+%     but WITHOUT ANY WARRANTY. 
+%     Notice: permission is hereby granted, free of charge, to any person 
+%     obtaining a copy of this software and associated documentation files 
+%     (the "Software"), to deal in the Software without restriction, 
+%     including without limitation the rights to use, copy, modify, merge, 
+%     publish, distribute, sublicense, and/or sell copies of the Software, 
+%     and to permit persons to whom the Software is furnished to do so, 
+%     subject to the following conditions:
+%
+%     The above copyright notice and this permission notice shall be 
+%     included in all copies or substantial portions of the Software.
+%
+%     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
+%     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
+%     MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+%     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY 
+%     CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
+%     TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+%     SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 function CSC_Demo()
 
